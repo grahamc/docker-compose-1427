@@ -1,0 +1,12 @@
+dockerserver:
+  build: ./server/
+  privileged: true
+  volumes:
+    - ./certs:/certs
+
+compose:
+  build: ./compose/
+  links:
+    - dockerserver
+  volumes:
+    - ./certs:/certs
